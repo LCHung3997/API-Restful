@@ -6,5 +6,8 @@ module.exports = {
   },
   addAccount: account => {
     return db.add('Account', account);
-  }
+  },
+  getUser: user =>{
+    return db.load(`select * from Account where Username = '${user}' `);
+  },
 };
