@@ -1,13 +1,17 @@
 var express = require('express');
 var router = express.Router();
 var db = require('../model/index.model')
+const passport  = require('passport');
  
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  db.load().then((r) => {
-    res.json(r);
-    //res.render('index', { title: 'Express' });
-  })
+ 
+    res.render('index', { title: 'Express' });
+  
+});
+
+router.get('/me',passport.authenticate('jwt', {session: false}),function(req, res, next) {
+  res.json(req.user);
 });
 
 router.post('/user/register',function(req, res, next){

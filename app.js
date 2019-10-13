@@ -7,10 +7,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 // var usersRouter = require('./routes/users');
-var user = require('./routes/users');
+// var user = require('./routes/users');
 const auth = require('./routes/auth');
-const passport  = require('passport');
-
 require('./middleware/passport');
 var app = express();
 
@@ -28,8 +26,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(passport.initialize());
 
 app.use('/', indexRouter);
-app.use('/user', passport.authenticate('jwt', {session: false}), user);
-app.use('/auth', auth);
+app.use('/user', auth);
+// app.use('/user', passport.authenticate('jwt', {session: false}), user);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
