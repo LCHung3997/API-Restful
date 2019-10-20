@@ -5,7 +5,7 @@ var createConnection = () => {
     host: "remotemysql.com",
     port: "3306",
     user: "HYJAsCDBW1",
-    password: "Vvm5yOmEPu",
+    password: "j90FynXMFY",
     database: "HYJAsCDBW1"
   });
 };
