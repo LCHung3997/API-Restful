@@ -39,9 +39,10 @@ passport.use(
           var id = rows[0].ID;
           var Username = rows[0].Username;
           var gender = rows[0].gender;
+          var avatar = rows[0].avatar;
           
           if (rows[0] != null && Password === rows[0].Password) {
-            user = { gmail, Password, id, Username, gender};
+            user = { gmail, Password, id, Username, gender, avatar};
           }
 
           // console.log(user)

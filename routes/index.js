@@ -21,7 +21,8 @@ router.post("/user/register", function(req, res, next) {
     gmail: req.body.gmail,
     Password: req.body.Password,
     Username: req.body.Username,
-    gender: req.body.gender
+    gender: req.body.gender,
+    avatar: req.body.avatar,
   };
   db.getGmail(account.gmail).then(sum => {
     var a = sum[0]
