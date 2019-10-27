@@ -10,6 +10,9 @@ module.exports = {
   getUser: user =>{
     return db.load(`select * from Account where Username = '${user}' `);
   },
+  getGmail: gmail =>{
+    return db.load(`select * from Account where gmail = '${gmail}' `);
+  },
   findOneById: id => {
     return db.load(`select * from Account where ID = '${id}' `);
 

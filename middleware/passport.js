@@ -28,18 +28,20 @@ passport.use(
 passport.use(
   new LocalStrategy(
     {
-      usernameField: "Username",
+      usernameField: "gmail",
       passwordField: "Password"
     },
-    function(Username, Password, cb) {
+    function(gmail, Password, cb) {
       //this one is typically a DB call. Assume that the returned user object is pre-formatted and ready for storing in JWT
-      UserModel.getUser(Username)
+      UserModel.getGmail(gmail)
         .then(rows => {
           var user = null;
           var id = rows[0].ID;
-          console.log(id);
+          var Username = rows[0].Username;
+          var gender = rows[0].gender;
+          
           if (rows[0] != null && Password === rows[0].Password) {
-            user = { Username, Password, id };
+            user = { gmail, Password, id, Username, gender};
           }
 
           // console.log(user)
